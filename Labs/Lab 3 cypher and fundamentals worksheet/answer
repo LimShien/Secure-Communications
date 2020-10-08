@@ -1,0 +1,51 @@
+1.  http://asecuritysite.com/Challenges Score: 22
+2.  http://asecuritysite.com/Encryption/testprime
+        TEST PRIME NUMBER
+        91 - NOT 
+        421- YES
+        1449 - NOT
+3.  https://asecuritysite.com/Encryption/gcd
+        DETERMINE GCD 
+        88, 46   -> GCD = 2
+        105, 35  -> GCD = 35
+4.  http://asecuritysite.com/coding/ascii
+        Determine the Base 64 and Hex values
+        Hello : HEX -> 48656C6C6F0D0A , BASE-64 -> SGVsbG8NCg==
+        hello : HEX -> 68656C6C6F0D0A , BASE-64 -> aGVsbG8NCg==
+        HELLO : HEX -> 48454C4C4F0D0A , BASE-64 -> SEVMTE8NCg==
+5. http://asecuritysite.com/coding/ascii
+        Determine the following ASCII strings 
+        bGxveWRz -> lloyds
+        6E6170696572->napier
+        01000001 01101110 01101011 01101100 01100101 00110001 00110010 00110011
+        -> Ankle123 
+6. http://asecuritysite.com/Coding/exor
+        Determine the EX-OR of “hello” ex-ORed with the letter ‘t’
+        HEX:00011100 00010001 00011000 00011000 00011011 01111001 01111110 
+        BASE-64:HBEYGBt5fg==
+        ASCII:y~
+7.  53,431 mod 453
+        430
+8. http://asecuritysite.com/Encryption/js01
+        Generate a random number
+        -contain 60 ramdom numbers (hex)
+        
+B ---- five minutecracking challenge
+        http://asecuritysite.com/challenges/scramb
+        Mapping: ABCDEFGHIJKLMNOPQRSTUVWXYZ, Message: this is a message
+        Mapping: NOPQRSTUVWXYZABCDEFGHIJKLM, Message: this is a mes
+        Mapping: ZYXWVUTSRQPONMLKJIHGFEDCBA, Message: this is a message
+        
+C ---- Character Mapping        
+        Character       Decimal Binary          Hex     Oct     HTML
+        (Space)         32      00100000        0X20    40      &#32       
+
+        a               97      01100001        0x61    141     &#97
+
+        }               125     01111101        0X7D    175     &#125
+        
+        Ã               195     11000011        0XC3    303     &#195
+
+        ÿ               255     11111111        0XFF    377     &#255
+
+        (source : https://v2.cryptii.com/decimal/octal)
