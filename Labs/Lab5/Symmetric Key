@@ -1,0 +1,88 @@
+
+A1  
+    openssl list -cipher-commands 
+    openssl version
+
+
+    five encryption method tha are supported:
+        AES
+        ARIA
+        BF (Blowfish)
+        Camellia
+        CAST
+        des
+        rc2
+        rc4
+        seed
+        sm4
+
+    SSL version = OpenSSL 1.1.1g 21 Apr 2020
+
+A2  openssl prime -hex 1111
+
+        42 Not prime 
+        1431 prime
+A3  Now create a file named myfile.txt (either useNotepad or another editor).Nextencrypt with aes-256-cbc 
+    openssl enc -aes-256-cbc -in myfile.txt -out encrypted.bin
+
+A4  Now repeat the previous command and add the –base64 option.openssl enc -aes-256-cbc -in myfile.txt -out encrypted.bin–base64
+    openssl enc -aes-256-cbc -in myfile.txt -out encrypted.bin -base64
+A5  Now Repeat the previous command and observe the encrypted output
+    it has changed.
+A6  Now let’s decrypt the encrypted file with the correct format:
+openssl enc -d -aes-256-cbc -in encrypted.bin -pass pass:napier-base64
+
+
+
+Padding AES                              
+
+B1  With AESwhich uses a 256-bit key, what is the normalblock size (in bytes).
+    Block size = 2
+    hex character = 32
+
+B2  Go to:&Web link(AES Padding):http://asecuritysite.com/encryption/paddingUsing 256-bit AES encryption, and a message of “kettle” and a password of “oxtail”, determine the cipher using the differing padding methods (you only need to show the first six hex characters).If you like, copy and paste the Python code from the page, and run it on your Kali instance
+    CMS:61e145c4936c
+    Null:61e14593c46c
+    Space:61e14593c46c
+
+B3  For the following words, estimate how many hex
+    characters will be used for the 256-bit AES
+    encryption:
+    fox:29
+    foxtrot:25
+    foxtrotanteater:17
+
+C   Padding(DES)
+
+C1  With DES which uses a 64-bit key, what is the
+    normal block size (in bytes):
+    Block size (bytes):8
+    Number of hex characters for
+    block size:16
+
+C2  Using 64-bit DES key encryption, and a
+    message of “kettle” and a password of “oxtail”,
+    determine the cipher using the differing
+    padding methods.
+    CMS:0d74d0510d32caaa
+    Null:0d74d0510d32caaa
+    Space:8400ede37908c60c
+
+C3 3 For the following words, estimate how many
+    hex characters will be used for the 64-bit key
+    DES encryption:
+    fox:5
+    foxtrot:1
+    foxtrotanteater:1
+
+
+Now determine the cipher text for the following (the first example has already been
+completed):
+
+message     key            CMS cipher
+“hello”     “hello123”      0a7ec77951291795bac6690c9e7f4c0d
+“inkwell”   “orange”        484299ceec1ad83b1ce848b0a9733c8d
+
+“security”  “qwerty”        6be35165e2c9a624de4f401692fe7161
+
+“Africa”    “changeme”      c283f9cf046e82aa6e03b9b91e19b244
