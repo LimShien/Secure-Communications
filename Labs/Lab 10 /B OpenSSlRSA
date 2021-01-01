@@ -1,0 +1,28 @@
+.1First e need to generate a key pair with:
+    opensslgenrsa-out private.pem1024
+    This file contains both the public and the private key.
+    What is the type of public key method used:
+    How long is the default key: 1024
+    How long did it take to generate a 1,024 bitkey?
+    Use the following command to view the keys:catprivate.pem
+
+B.2 Use followingcommand to view the output file:cat private.pem
+    What can be observed at the start and end of the file:
+    ---begin and end of RSA private key block
+
+B.3 Nextwe view the RSA key pair:
+    opensslrsa-in private.pem-text 
+    Which are the attributes of the keyshown:
+
+    Which number format is used to display the information on the attributes
+    ---Hexadecimal
+
+B.4 et’s now secure the encrypted key with 3-DES:opensslrsa-in private.pem-des3 -out key3des.pe
+    Why should you have a password on the usage of your private key?
+    --only viewable by the owner of the private key
+B.5
+    Nextwe will export the public key:opensslrsa-in private.pem-out public.pem-outformPEM -puboutView the output key. 
+    What does the header and footer of the file identify?
+    ---public key
+B.6 Nowcreate a file named “myfile.txt” and put a message into it. Next encrypt it with yourpublic key:
+    openssl rsautl -encrypt -inkey public.pem -pubin -in myfile.txt -out file.bin

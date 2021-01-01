@@ -1,0 +1,69 @@
+Write up for challenge Encryptme - B00122885 -Lim Shien Han
+
+
+Answer: Why do elephants have big ears?
+
+
+ 1 - code analysis
+    -the encryptme.py is run using smaller test case 
+    
+    -the code in each method is run separately 
+         - the step1 method change the alphabet using a translation table
+         - the step2 method simply encodes the parameter in base64 format
+         - the step3 method shift lower case alphabet to 4, e.g a -> e
+    - the make_secret method 
+        -it adds a numerical number at the beginning based on the step 
+        e.g, if step1 is called, it adds a '1' in front of the string  
+        -it runs the step randomly based on the count that is passed as parameter.
+        
+    -to better understanding the code, each step inside the make_secret method is printed 
+
+
+
+ 2 - solution-reversing the functionality of each method/step
+    
+    -reverse step1 method:
+        -the position of the parameters for maketrans method is swapped 
+
+        original code: _step1 = string.maketrans("zyxwvutsrqponZYXWVUTSRQPONmlkjihgfedcbaMLKJIHGFEDCBA","mlkjihgfedcbaMLKJIHGFEDCBAzyxwvutsrqponZYXWVUTSRQPON")
+        solution code: _step1 = string.maketrans("mlkjihgfedcbaMLKJIHGFEDCBAzyxwvutsrqponZYXWVUTSRQPON", "zyxwvutsrqponZYXWVUTSRQPONmlkjihgfedcbaMLKJIHGFEDCBA")
+
+        prove:
+            the string "test" is passed to the original step1, it returns "grfg"
+            the string "grfg" is passed to the solution step1, it returns back "test" 
+    -reverse step2 method:
+        -return the decoded value of the argument using b64decode()
+
+        original code: return b64encode(s)
+        solution code: return b64decode(s)
+
+        prove:
+            the string "test" is passed to the original step2, it returns "dGVzdA=="
+            the string "dGVzdA==" is passed to the solution step2, it returns back "test"
+    
+    -reverse step3 method 
+        -modify the parameter value for shift (from 4 to -4)
+        
+        original code: step3(plaintext, shift=4):
+        solution code: step3(plaintext, shift=-4):
+
+        prove: 
+            the string "testTEST123" is passed to the original step3, it returns "xiwxTEST123"
+            the string "xiwxTEST123" is passed to the solution step3, it returns back "testTEST123"
+        
+3 -solution - looping and checking 
+    - create a infinite loop to keep checking the first character and keep calling the reversed/solution method 
+    - inside the loop,  check if the first character of the cipher text is digit until there is no more numerical value at the beginning
+            -if the first digit is number 1 to 3, 
+                    -remove the first character of the cipher text (that indicates the step)
+                    -pass the cipher text to the associated function, e.g., if the first character is 1, call _step1
+            - if the first digit is not a number or out of 1 to 3
+                    -exit the loop
+    - return the final version of cipher text (which is the plain text)
+
+4 - testing solution    
+    - the encryptme.py is run using ciphered text "test" and count = 5, it returns "2MTJaR1pscUlFV3BLSUJDRzA9" (the result of each instance varies)
+
+    - the result from above is run on the solution script and the string "test" was returned.
+
+    - the content of intercepted.txt (from Moodle) is passed to the solution script and the result is returned.

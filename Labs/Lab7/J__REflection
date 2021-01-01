@@ -1,0 +1,10 @@
+1. Why might increasing the number of iterations be a bette
+r method of protecting
+a hashed password than using a salted version?
+    -  increasing the number of iteration doubles the time for hashing,
+         thus, slow down any brute force cracking
+
+
+2. Why might the methods bcrypt, Phpass and PBFDK2 be preferred for storing
+passwords than MD5, SHA?
+    MD5 and SHa can be be cracked with rainbow table/ brute force attack

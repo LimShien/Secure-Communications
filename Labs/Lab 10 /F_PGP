@@ -1,0 +1,8 @@
+Create a key pair with (RSA and 2,048-bit keys):
+gpg --gen-key
+Now export yourpublic key using the form of:
+gpg --export -a "Your name" > mypub.key
+Now export yourprivate key using the form of:gpg --export-secret-key -a "Your name" > mypriv.key
+
+How is the randomness generated?
+Outline the contents of yourkey file:

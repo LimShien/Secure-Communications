@@ -1,0 +1,26 @@
+Elliptic  Curve Cryptography  (ECC)  is  now  used  extensively  within  public  key  encryption, including with Bitcoin, Ethereum, Tor, and many IoT applications. In this part of the lab we will use OpenSSL to create a key pair. For this we generate a random 256-bit private key (priv), and then generate a public key point (privmultiplied by G), using a generator (G), and which is a generator point on the selected elliptic curve.
+
+c.1 Firstwe need to generate a private key with:
+    openssl ecparam -name secp256k1 -genkey -out priv.pem
+    The file will only contain the private key (and should have 256 bits).Now use “cat priv.pem” to view your key. 
+
+
+c.2    We can view the details of the ECC parameters used with:
+        openssl ecparam -in priv.pem -text -param_enc explicit -noout
+
+        Outline these values:Prime (last two bytes): fc:2f
+        A:    0
+        B:    7 (0x7)
+
+        Generator (last two bytes): d4:b8
+
+        Order (last two bytes): 41:41
+c.3
+    ow generate your public key based on your private key with:
+    openssl ec -in priv.pem -text -noout
+    How many bits and bytes does your private key have:
+    ---256 bits 32 bytes
+    How many bit and bytes does your public key have (Note the 04 is not part of the elliptic curve point):
+    ---64bytes, 512 bits
+    What is the ECC method that you have used?
+    ---secp256k1

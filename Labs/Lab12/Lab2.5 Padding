@@ -1,0 +1,57 @@
+A  Padding(AES)
+    1. With AES which uses a 256-bit key, what is the normal block size (in bytes).
+
+    Block size (bytes): 32 bytes
+    Number of hex characters for block size: 64
+
+    2. Go to:http://asecuritysite.com/encryption/paddingUsing 256-bit AES encryption, and a message of “kettle” and a password of “oxtail”, determine the cipher using the differing padding methods(you only need to show the first six hex characters).
+
+    CMS: 61e145
+    Bit: 61e145
+    ZeroLength: 61e145
+    Null: 61e145 
+    Space: 18eff3
+    Random:61e145
+
+    3. For the following words, estimate how many hex characters will be used for the 256-bit AES encryption:
+        Number of hex characters:
+        “fox”: 29
+        “foxtrot”: 25
+        “foxtrotanteater”: 17
+        “foxtrotanteatercastle”:11
+    4. With 256-bit AES, for ncharacters in a string, how would you generalise the calculation of the number of hex characters in the cipher text
+      How many Base-64 characters would be used (remember 6 bits are used to represent a Base-64 character)
+
+        Hex character: 32-n
+        Base-64 characters: (32 - n ) * 8 / 6
+
+    B. Padding DES
+       1 With DES which uses a 64-bit key, what is the normal block size (inbytes)
+
+        block size(bytes) : 8
+        Number of hex characters for block size:16
+
+        2.Using 64-bit DES encryption, and a message of “kettle” and a password of “oxtail”, determine the cipher using the differing padding methods
+
+            CMS: 0d74d0510d32caaa
+            Bit: 0d74d0510d32caaa
+            ZeroLength: 0d74d0510d32caaa
+            Null: 0d74d0510d32caaa 
+            Space: 8400ede37908c60c
+            Random:0d74d0510d32caaa
+
+    c. For the following words, estimate how many hex characters will be used for the 64-bit DES encryption
+
+            “fox”: 10
+            “foxtrot”: 2
+            “foxtrotanteater”: 2
+            “foxtrotanteatercastle”:6
+
+    d.
+    With 64-bit DES, for ncharacters in a string, how would you generalise the calculation of the number of hex characters in the cipher text.How many Base-64 characters wouldbe used (remember 6 bits are used to represent a Base-64 character)
+
+    Hex character = (8 - n) * 2, n < 8
+
+    B64: (16 - 2n)* 6/8
+
+    

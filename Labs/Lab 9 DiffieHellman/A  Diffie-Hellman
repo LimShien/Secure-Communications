@@ -1,0 +1,65 @@
+A Diffie-Hellman
+    1   Bob and Alice have agreed on the values:
+        g=2879, N= 9929
+        Bob Select x=6, Alice selects y=9
+
+        Now calculate (using a calculator):
+        Bob’s A value (g**x mod N): 4850
+        Alice’s B value (g**Y mod N): 3614
+
+    2   Now they exchange the values. Next calculate the
+        shared key:
+        Bob’s value (B**x mod N):4868
+        Alice’s value (A**Y mod N): 4868
+        Do they match? [Yes] [No]
+B OpenSSL(Diffie-Helman and ECC)
+    1   Generate 768-bit Diffie-Hellman parameters:
+        openssl dhparam -out dhparams.pem
+        768 -text
+        View your key with:
+        cat dhparams.pem
+        
+        What is the value of g: MGYCYQCMCGNHtUXJPAqagnATzgwR0DB4ftVmtAlAwz59/NwjaPMRd+tEuyJkITL/
+                                Kt68mxkbQ8N97DO6azOdFlUD1MJktJ9rwfYNSLiJ63w0au4as9zu8KBUp7/zCbOt
+                                dUK2qZMCAQI=
+
+        How many bits does the prime number have? 768
+
+        How long does it take to produce the
+        parameters for 1,024 bits (Group 2)?  
+        How long does it take to produce the
+        parameters for 1536 bits (Group 5)?
+        How would we change the g value?
+
+    2   Let’s look at the Elliptic curves we can
+        create:
+        openssl ecparam -list_curves
+        We can create our elliptic parameter file
+        with:
+        openssl ecparam -name
+        secp256k1 -out secp256k1.pem
+        Now view the details with:
+        openssl ecparam -in
+        secp256k1.pem -text -param_enc
+        explicit -noout
+        What are the details of the key?
+        Now we can create our key pair:
+        openssl ecparam -in
+        secp256k1.pem -genkey -noout - out mykey.pem
+
+
+        Name three 160-bit curves:
+            c2pnb163v1
+            c2pnb163v2
+            c2pnb163v3
+            wap-wsg-idm-ecid-wtls7
+        By doing a search on the Internet, which
+        curve does Bitcoin use?
+            secp256k1
+        Can you find other application around that use
+        this curve or others?
+        Can you explain how you would use these EC
+        parameters to perform the ECDH key
+        exchange?
+
+   
