@@ -18,11 +18,7 @@ def decrypt_flag(shared_secret: int, iv: str, ciphertext: str):
     iv = bytes.fromhex(iv)
     cipher = AES.new(key, AES.MODE_CBC, iv)
     plaintext = cipher.decrypt(ciphertext)
-
-    if is_pkcs7_padded(plaintext):
-        return unpad(plaintext, 16).decode('ascii')
-    else:
-        return plaintext.decode('ascii')
+    return plaintext
 
 
 g = 2
@@ -37,4 +33,4 @@ ciphertext = '39c99bf2f0c14678d6a5416faef954b5893c316fc3c48622ba1fd6a9fe85f3dc72
 shared_secret = pow(A, b, p)
 
 
-print(decrypt_flag(shared_secret, iv, ciphertext))
+print(type(decrypt_flag(shared_secret, iv, ciphertext)[0:6]))
