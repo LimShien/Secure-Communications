@@ -23,8 +23,6 @@ q = 7734227083775391639640261421598076012724505650436151548980929385222220659616
 phi = (p-1)*(q-1)
 d = inverse(e, phi) 
 
-
-with open('/home/kali/College/Secure-Communications/Cryptohack/RSA/Primes Part2/FastPrimes/pk.pem') as f:
-    pk = RSA.importKey(f.read())
+RSA.construct((n,e,d,p,q))
 
 #####cant continue because cant generate RSA private key (PEM)

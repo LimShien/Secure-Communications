@@ -1,3 +1,32 @@
 {
-    "python.pythonPath": "/usr/bin/python3"
+    "python.pythonPath": "/usr/bin/python3",
+    "cSpell.ignoreWords": [
+        "and",
+        "bytes",
+        "c",
+        "complex",
+        "d",
+        "def",
+        "def get complex prime d while true s random randint n tmp if and is return m bytes to long flag p q e c pow",
+        "e",
+        "flag",
+        "get",
+        "if",
+        "is",
+        "long",
+        "m",
+        "n",
+        "p",
+        "pow",
+        "prime",
+        "q",
+        "randint",
+        "random",
+        "return",
+        "s",
+        "tmp",
+        "to",
+        "true",
+        "while"
+    ]
 }
